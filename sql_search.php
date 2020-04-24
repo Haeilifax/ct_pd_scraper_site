@@ -21,7 +21,6 @@ if ($input) {
         <th>Last Name</th>
         <th>Date(ISO)</th>
         <th>Police Dep. City</th>
-        <th>Content</th>
         </tr>
     </thead>";
 
@@ -34,9 +33,8 @@ if ($input) {
         <td>$lname</td>
         <td>$date</td>
         <td>$pdcity</td>
-        <td>$content</td>
         </tr>
-        <tr hidden='true' id='$table_index'><td colspan='5'>$content</td></tr>";
+        <tr hidden='true' id='$table_index'><td colspan='4'>$content</td></tr>";
         $table_index++;
     }
     echo "</tbody>
