@@ -56,13 +56,19 @@
 
   <div class="row">
     <div class="col">
-      <div id="welcomeDiv"  hidden="true" class="answer_list"></div>
+      <div id="welcomeDiv" class="answer_list"></div>
       <script>
-        function showDiv($index) {
-          document.getElementById($index).hidden = false;
+        function show(message) {
+          document.getElementById("welcomeDiv").innerHTML = message;
         }
-        function hideDiv() {
-          document.getElementById("welcomeDiv").hidden = true;
+
+        on_flag = null;
+        function showDiv(index) {
+          document.getElementById(index).hidden = false;
+          if (on_flag !== null) {
+            document.getElementById(on_flag).hidden = true;
+          }
+          on_flag = index;
         }
       </script>
 
