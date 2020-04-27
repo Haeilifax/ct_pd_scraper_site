@@ -31,7 +31,7 @@
           <div class="col-auto">
             <label for="form_type">What to search for: </label>
             <select id='form_type' name='form_type' class='form-control'>;
-            <?php include "select_box.php"?>
+              <?php include "select_box.php"?>
             </select>
           </div>
           <div class="col-6">
@@ -50,9 +50,6 @@
       ?>
     </div>
   </div>
-
-
-
 
   <div class="row">
     <div class="col">
@@ -75,12 +72,6 @@
       </div>
       </div>
       </div>
-
-
-
-
-
-
 </body>
 <?php
 $conn->close;
