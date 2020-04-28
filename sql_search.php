@@ -34,7 +34,7 @@ if ($input) {
         <td>$date</td>
         <td>$pdcity</td>
         </tr>
-        <tr hidden='true' id='$table_index'><td colspan='4'>$content</td></tr>";
+        <tr hidden='true' id='$table_index'><td colspan='4'><b>Content:</b> $content</td></tr>";
         $table_index++;
     }
     echo "</tbody>
