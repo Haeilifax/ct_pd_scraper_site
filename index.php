@@ -30,7 +30,7 @@
         <div class="form-row">
           <div class="col-auto">
             <label for="form_type">What to search for: </label>
-            <select id='form_type' name='form_type' class='form-control'>;
+            <select id='form_type' name='form_type' class='form-control' onchange="changeSearchBox('input_box', 'form_type')">;
               <?php include "select_box.php"?>
             </select>
           </div>
@@ -50,28 +50,45 @@
       ?>
     </div>
   </div>
+</div>
+  <script>
+    on_flag = null;
+    function showDiv(index) {
+      document.getElementById(index).hidden = false;
+      if (on_flag !== null) {
+        document.getElementById(on_flag).hidden = true;
+      }
+      on_flag = index;
+    }
+  </script>
 
-  <div class="row">
-    <div class="col">
-      <div id="welcomeDiv" class="answer_list"></div>
-      <script>
-        function show(message) {
-          document.getElementById("welcomeDiv").innerHTML = message;
-        }
+  <script>
+    function changeSearchBox(sBoxId, selfId){
+      sBox = document.getElementById(sBoxId);
+      self = document.getElementById(selfId)
+      formType = self.value
+      sBox.placeholder = setHint(formType);
+    }
 
-        on_flag = null;
-        function showDiv(index) {
-          document.getElementById(index).hidden = false;
-          if (on_flag !== null) {
-            document.getElementById(on_flag).hidden = true;
-          }
-          on_flag = index;
-        }
-      </script>
+    function setHint(formType){
+      switch(formType){
+        case "last_name":
+          return "Smith";
+          break;
+        case "first_name":
+          return "John";
+          break;
+        case "date":
+          return "YYYY-MM-DD";
+          break;
+        case "pdcity":
+          return "Torrington";
+          break;
+      }
+    }
 
-      </div>
-      </div>
-      </div>
+    changeSearchBox("input_box", "form_type");
+  </script>
 </body>
 <?php
 $conn->close;
