@@ -1,5 +1,5 @@
 <?php
-include "../exceptions.php";
+include "../exceptions/FormValidationError.php";
 if (!preg_match("/^[a-zA-Z ]*$/", $input)) {
         echo ("Only letters and white space allowed in First Name field");
         throw new Form_Validation_Error;
