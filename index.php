@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
 <div class="container-fluid">
   <div class="row">
     <div class="col">
@@ -25,14 +24,22 @@
     </div>
   </div>
 
-
+  <div class="row">
+    <div class="col">
       <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"], ENT_QUOTES|ENT_HTML5, "UTF-8"); ?> method="get">
         <div class="form-row">
           <div class="col-auto">
-            <label for="form_type">What to search for: </label>
-            <select id='form_type' name='form_type' class='form-control'>;
-              <?php include "select_box.php"?>
-            </select>
+            <label for="first_name_box">First Name</label>
+            <input type="checkbox" id="first_name_box" name="form_type" value="first_name">
+            <br>
+            <label for="last_name_box">Last Name</label>
+            <input type="checkbox" id="last_name_box" name="form_type" value="last_name">
+            <br>
+            <label for="date_box">Date</label>
+            <input type="checkbox" id="date_box" name="form_type" value="date">
+            <br>
+            <label for="pdcity_box">Police Dept. City</label>
+            <input type="checkbox" id="pdcity_box" name="form_type" value="pdcity">
           </div>
           <div class="col-6">
             <div class="form-group">
@@ -43,6 +50,8 @@
         </div>
         <button type="submit" id="search_btn" class="btn btn-primary">Search</button>
       </form>
+    </div>
+  </div>
   <div class="row">
     <div class="col">
     <?php
@@ -50,28 +59,19 @@
       ?>
     </div>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col">
-      <div id="welcomeDiv" class="answer_list"></div>
-      <script>
-        function show(message) {
-          document.getElementById("welcomeDiv").innerHTML = message;
-        }
+  <script>
+    on_flag = null;
+    function showDiv(index) {
+      document.getElementById(index).hidden = false;
+      if (on_flag !== null) {
+        document.getElementById(on_flag).hidden = true;
+      }
+      on_flag = index;
+    }
+  </script>
 
-        on_flag = null;
-        function showDiv(index) {
-          document.getElementById(index).hidden = false;
-          if (on_flag !== null) {
-            document.getElementById(on_flag).hidden = true;
-          }
-          on_flag = index;
-        }
-      </script>
-
-      </div>
-      </div>
-      </div>
 </body>
 <?php
 $conn->close;
