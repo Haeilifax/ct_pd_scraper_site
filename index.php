@@ -51,16 +51,21 @@
     </div>
   </div>
 </div>
-  <script>
-    on_flag = null;
+<script>
+    let on_flag = null;
     function showDiv(index) {
-      document.getElementById(index).hidden = false;
-      if (on_flag !== null) {
+      if (on_flag !== null){
         document.getElementById(on_flag).hidden = true;
       }
-      on_flag = index;
+      if (on_flag === index) {
+        on_flag = null
+      }
+      else{
+        document.getElementById(index).hidden = false;
+        on_flag = index;
+      }
     }
-  </script>
+</script>
 
   <script>
     function changeSearchBox(sBoxId, selfId){
