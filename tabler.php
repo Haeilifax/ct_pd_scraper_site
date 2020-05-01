@@ -13,7 +13,7 @@ echo "<tbody>";
 
 $table_index = 0;
 while($sql->fetch()){
-    echo "<tr onclick='showDiv($table_index)'>
+    echo "<tr onclick='showDiv($table_index)' class='clickable'>
     <td>$fname</td>
     <td>$lname</td>
     <td>$date</td>
