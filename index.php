@@ -45,7 +45,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" id="search_btn" class="btn btn-primary">Search</button>
+          <button type="submit" id="norm-search_btn" class="btn btn-primary">Search</button>
         </form>
       </div>
     </div>
@@ -59,14 +59,14 @@
   <div hidden id="advancedSearch">
     <div class="row">
       <div class="col">
-        <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"], ENT_QUOTES|ENT_HTML5, "UTF-8"); ?> method="get">
+        <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"], ENT_QUOTES|ENT_HTML5, "UTF-8"); ?> method="get" onsubmit="validateBoxInputMatch()">
           <div class="form-row">
             <div class="col-auto">
                 <label for="first_name_box">First Name</label>
                 <input type="checkbox" id="first_name_box" name="first_name_checked" value="first_name">
             </div>
             <div class="col col-sm-6 col-md-4 col-lg-3">
-                <input type="text" id="first_name_input" name="first_name" autocomplete="off" class="form-control" placeholder="John">
+                <input type="text" id="first_name_input" name="first_name" autocomplete="off" class="form-control" placeholder="John" onclick="fillCheckbox('first_name_box')">
             </div>
         </div>
         <div class="form-row">
@@ -75,7 +75,7 @@
                 <input type="checkbox" id="last_name_box" name="last_name_checked" value="last_name">
             </div>
             <div class="col col-sm-6 col-md-4 col-lg-3">
-                <input type="text" id="last_name_input" name="last_name" autocomplete="off" class="form-control" placeholder="Smith">
+                <input type="text" id="last_name_input" name="last_name" autocomplete="off" class="form-control" placeholder="Smith" onclick="fillCheckbox('last_name_box')">
 
             </div>
         </div>
@@ -85,7 +85,7 @@
                 <input type="checkbox" id="pdcity_box" name="pdcity_checked" value="pdcity">
             </div>
             <div class="col col-sm-6 col-md-4 col-lg-3">
-                <input type="text" id="pdcity_input" name="pdcity" autocomplete="off" class="form-control" placeholder="Torrington">
+                <input type="text" id="pdcity_input" name="pdcity" autocomplete="off" class="form-control" placeholder="Torrington" onclick="fillCheckbox('pdcity_box')">
 
             </div>
         </div>
@@ -95,10 +95,10 @@
                 <input type="checkbox" id="date_box" name="date_checked" value="date">
             </div>
             <div class="col col-sm-6 col-md-4 col-lg-3">
-                <input type="text" id="date_input" name="date" autocomplete="off" class="form-control" placeholder="YYYY-MM-DD">
+                <input type="text" id="date_input" name="date" autocomplete="off" class="form-control" placeholder="YYYY-MM-DD" onclick="fillCheckbox('date_box')">
             </div>
         </div>
-            <button type="submit" id="search_btn" class="btn btn-primary">Search</button>
+            <button type="submit" id="adv-search_btn" class="btn btn-primary">Search</button>
         </form>
       </div>
     </div>
@@ -177,6 +177,13 @@
     }
 
     changeSearchBox("input_box", "form_type");
+  </script>
+
+  <script>
+    function fillCheckbox(boxID){
+      let box = document.getElementById(boxID);
+      box.checked = true;
+    }
   </script>
 </body>
 <?php

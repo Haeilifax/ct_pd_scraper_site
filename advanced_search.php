@@ -1,4 +1,5 @@
 <?php
+include "Validator.php";
 $formTypes = ["first_name"=>$_GET["first_name_checked"],
 "last_name"=>$_GET["last_name_checked"],
 "pdcity"=>$_GET["pdcity_checked"],
@@ -8,16 +9,20 @@ $whereArray = [];
 $inputs = [];
 $sArray =[];
 
-$loopIndex = 0;
+$validator = new Validator();
 foreach ($formTypes as $formType=>$checked){
     if ($checked){
-        $inputs[] = $_GET[$formType];
+        try{
+        $validator->validate($formType, $_GET[$formType]);
+        }
+        catch (Form_Validation_Error $e){
+            return;
+        }
+        $inputs[] = htmlspecialchars($_GET[$formType], ENT_HTML5|ENT_QUOTES, "UTF-8");
         $whereArray[] = $formType . "=?";
         $sArray[] = "s";
     }
-    $loopIndex++;
 }
-
 
 $whereClause = implode(" AND ", $whereArray);
 $sql = $conn->prepare("SELECT first_name, last_name, date, pdcity, content FROM person_view where " . $whereClause);

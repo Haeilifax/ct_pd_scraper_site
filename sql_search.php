@@ -1,5 +1,5 @@
 <?php
-include "exceptions/FormValidationError.php";
+include "Validator.php";
 $form_type = htmlspecialchars($_GET["form_type"], ENT_HTML5|ENT_QUOTES, "UTF-8");
 $input = htmlspecialchars($_GET["input"], ENT_HTML5|ENT_QUOTES, "UTF-8");
 
