@@ -25,7 +25,7 @@ foreach ($formTypes as $formType=>$checked){
 }
 
 $whereClause = implode(" AND ", $whereArray);
-$sql = $conn->prepare("SELECT first_name, last_name, date, pdcity, content FROM person_view where " . $whereClause);
+$sql = $conn->prepare("SELECT first_name, last_name, date, pdcity, content FROM person_view  where " . $whereClause . " ORDER BY date"); 
 $sql->bind_param(implode($sArray), ...$inputs);
 $sql->execute();
 
