@@ -1,0 +1,15 @@
+{
+    "name": "david/ctpdscrapersite",
+    "description": "Website designed to serve results from the ct_pd_scraper mysql database", 
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David A",
+            "email": "fake@fake.com"
+        }
+    ],
+    "require": {
+        "symfony/dotenv": "^5.0"
+    }
+}

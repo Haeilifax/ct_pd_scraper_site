@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "david";
-$password = "Aqua4Bowl";
-$dbname = "pdscrape";
+$servername = $_ENV["servername"];
+$username = $_ENV["db_username"];
+$password = $_ENV["db_password"];
+$dbname = $_ENV["db_name"];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
